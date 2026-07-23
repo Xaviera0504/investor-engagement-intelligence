@@ -67,6 +67,14 @@ if asked about in an interview.
   occurred yet for these clients. None of these 11 rows have churned.
 - No other missing values or duplicate client IDs in the raw data.
 
+## Scope and limitations
+
+This project models **client-driven relationship risk only** — signals like disengagement, short tenure, and low product usage that precede a client choosing to leave. That's the half of the problem this dataset can stand in for.
+
+It does **not** model **firm-driven relationship risk** — cases where the relationship comes under strain because of a decision the firm itself makes: a change in terms, a capacity constraint, or a liquidity decision that affects how and when a client can exit, independent of that client's engagement level or satisfaction. That kind of risk is real and arguably harder to manage, because it can hit even a firm's most engaged, highest-value clients, and it isn't visible in engagement data at all — it shows up in things like the terms of the relationship itself, communication responsiveness after a term change, or sentiment captured in relationship-manager notes.
+
+A production version of this tool at a real institutional firm would need a second, separate signal set to cover that half — this pipeline's architecture (aggregate → AI-synthesize → audit) would still apply, but the underlying data and features would not.
+
 ## What downstream phases should NOT do
 
 - Do not present `aum_tier` labels or `redemption_risk_flag` rates as reflective of
