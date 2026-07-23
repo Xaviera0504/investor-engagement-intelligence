@@ -1,0 +1,5 @@
+audit_trail.jsonl
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
+.DS_Store
